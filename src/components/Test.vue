@@ -1,0 +1,42 @@
+<script setup lang="ts">
+import { ref } from 'vue';
+
+let name = ref('');
+let init = function(){
+  name.value='';
+}
+</script>
+
+<template>
+  <div>
+    <input v-model="name" placeholder="이름" />
+  </div>
+  <div v-if="name != ''">
+  {{ name }}, Hello.
+  <button @click="init()">초기화</button>
+  </div>
+</template>
+
+<style scoped>
+h1 {
+  font-weight: 500;
+  font-size: 2.6rem;
+  top: -10px;
+}
+
+h3 {
+  font-size: 1.2rem;
+}
+
+.greetings h1,
+.greetings h3 {
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .greetings h1,
+  .greetings h3 {
+    text-align: left;
+  }
+}
+</style>
