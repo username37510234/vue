@@ -80,7 +80,7 @@ let calc = function () {
 
 <template>
   <div>
-    <input disabled v-model="sNumber"><br />
+    <input disabled v-model="sNumber">{{ lol }}<br />
     <input disabled v-model="fNumber"><br />
     <button @click="calcpad('/')">/</button>
     <button @click="clearAll()">CE</button>
