@@ -28,6 +28,7 @@ let counter = function () {
       <RouterLink to="/">Home</RouterLink>
       <RouterLink to="/about">About</RouterLink>
       <RouterLink to="/calc">계싼기</RouterLink>
+      <RouterLink to="/foods">Food List</RouterLink>
     </nav>
   </header>
   <div>

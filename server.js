@@ -1,8 +1,11 @@
 const express = require('express')
 const bodyParser = require('body-parser');
-
+const cors = require('cors');
 const server = express();
 
+server.use(cors({
+    origin:'*'
+}));
 server.use(bodyParser.json());
 
 const list = [
@@ -25,7 +28,7 @@ const list = [
 ]
 
 server.get('/test',function(req, res){
-    res.send('ㅎㅇ');
+    res.send(list);
 })
 
 server.listen(3300, function(){

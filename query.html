@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>과일 목록</h2>
+    <div>
+        <ul id="foodUl"></ul>
+    </div>
+    <script>
+        window.addEventListener('load',async function(){
+            const res = await fetch('http://localhost:3300/test');
+            const data = await res.json();
+            console.log(data);
+            let html = '';
+            for(const food of data){
+                html += '<li>' + food.name +'의 가격은 ' +food.price+'원 입니다.</li>';
+            }
+            document.querySelector('#foodUl').innerHTML = html;
+        })
+    </script>
+</body>
+</html>

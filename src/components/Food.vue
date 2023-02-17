@@ -1,16 +1,22 @@
 <script setup lang="ts">
-defineProps<{
-  name: string,
-  type: string,
-  price: string
-}>()
+import { onMounted,ref, type Ref } from 'vue';
+import axios from 'axios';
+let foods:Ref = ref([]);
+onMounted(async ()=>{
+  const res = await axios.get("http://localhost:3300/test");
+  console.log(res.data)
+  console.log(res)
+  foods.value = res.data;
+})
 </script>
 
 <template>
-  <h1>{{ name }}</h1>
-  <h2>종류 : {{ type }}</h2>
-  <h2 v-if="price !='0'">가격 : {{ price }} 원</h2>
-  맛있다. (아마도) <br><br>
+  <h2>푸드 리스트</h2>
+  <div>
+    <ul>
+      <li v-for="food in foods">{{ food.name }}의 가격은 {{ food.price }}원 입니다.</li>
+    </ul>
+  </div>
 </template>
 
 <style scoped>
